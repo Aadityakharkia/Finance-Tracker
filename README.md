@@ -21,4 +21,4 @@ Ensure you have Python 3 and the Tkinter library installed on your system. You c
 Clone the Repository: Use git clone https://github.com/Aadityakharkia/Finance-Tracker.git to download the project's code.
 Run the Application: Navigate to the project directory and execute python main.py (or the appropriate script name) to launch the Finance-Tracker.
 
-!["Image description"]([https://help.imgur.com/hc/en-us/articles/210076663-Uploading-Content](https://www.canva.com/design/DAGEXO5-W70/m8dcF1gb7IrjbvTvIxBs5Q/edit?utm_content=DAGEXO5-W70&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton))
+![image-description]([https://cdn.searchenginejournal.com/wp-content/uploads/2022/10/streamlit-tutorial-for-seos-6363b7c1bafc6-sej.png](https://www.canva.com/design/DAGEXO5-W70/Rsv2AteEB3ZkDM68fNFxcw/view?utm_content=DAGEXO5-W70&utm_campaign=designshare&utm_medium=link&utm_source=editor))
