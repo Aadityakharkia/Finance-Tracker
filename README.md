@@ -15,6 +15,10 @@ Informative Charts: Gain visual clarity on your financial health with a variety 
 MySQL Integration: (Optional) For larger-scale financial tracking needs, integrate with MySQL for secure and scalable data storage.
 Getting Started
 
-Prerequisites: Ensure you have Python 3 and the Tkinter library installed on your system. You can typically install Tkinter using pip install tkinter. Consider using a virtual environment for project isolation.
+<h2>Prerequisites: </h2>
+
+Ensure you have Python 3 and the Tkinter library installed on your system. You can typically install Tkinter using pip install tkinter. Consider using a virtual environment for project isolation.
 Clone the Repository: Use git clone https://github.com/Aadityakharkia/Finance-Tracker.git to download the project's code.
 Run the Application: Navigate to the project directory and execute python main.py (or the appropriate script name) to launch the Finance-Tracker.
+
+!["Image description"]([https://help.imgur.com/hc/en-us/articles/210076663-Uploading-Content](https://www.canva.com/design/DAGEXO5-W70/m8dcF1gb7IrjbvTvIxBs5Q/edit?utm_content=DAGEXO5-W70&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton))
