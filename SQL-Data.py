@@ -10,6 +10,8 @@ myresult = mycursor.fetchall()
 
 for row in myresult:
     print(row)
-
 mycursor.close()
 mydb.close()
+
+class MySQL():
+
