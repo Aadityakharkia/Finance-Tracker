@@ -1,6 +1,7 @@
+import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
-
+from Transaction_Window import FinancialApp
 
 class GUI:
     def __init__(self):
@@ -52,7 +53,9 @@ class GUI:
 # Placeholder functions
 
     def add_expenditure(self):
-        messagebox.showinfo("Add Expenditure", "This function will add an expenditure.")
+        root = tk.Tk()
+        app = FinancialApp(root)
+        root.mainloop()
 
     def show_dashboard(self):
         messagebox.showinfo("Dashboard", "This function will display the dashboard.")

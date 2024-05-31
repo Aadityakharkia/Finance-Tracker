@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from datetime import datetime
 from tkcalendar import Calendar
-from SQL-Data import SQL
+from SQL import SQLData
 
 # Defining Class for the Trasaction Page
 class FinancialApp:
@@ -35,8 +35,16 @@ class FinancialApp:
         selected_account = self.accounts_frame.account_var.get()
         selected_purpose = self.purpose_frame.purpose_var.get()
         entered_date = self.date_frame.date_entry.get()
-        return selected_option, entered_amount, selected_purpose, entered_date, selected_account
 
+        # Create an SQLData object with filename for writing (optional)
+        sql_data = SQLData(filename="transactions.txt")  # Set filename here
+        sql_data.data = (selected_option, entered_amount, selected_purpose, entered_date, selected_account)
+
+        # Write data to file (optional)
+        sql_data.write_to_file()  # Call the write_to_file method from SQLData
+
+        # Print result for confirmation (optional)
+        print("Data submitted successfully!")
 
 # Class for Credit or Debit Selection
 class DebitCreditFrame:
