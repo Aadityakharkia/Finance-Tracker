@@ -6,11 +6,11 @@ from Transaction_Window import FinancialApp
 class GUI:
     def __init__(self):
         self.root = Tk()
-        self.root.title("Finance Tracker")
+        self.root.title("Finance Tracker Dashboard")
 
         self.root.geometry("1000x700")
-        self.root.minsize(1000, 700)
-        self.root.maxsize(1000, 700)
+        self.root.minsize(1250, 750)
+        self.root.maxsize(1250, 750)
 
         self.button_frame = Frame(self.root)
         self.button_frame.pack(fill=X, pady=10)
@@ -56,12 +56,19 @@ class GUI:
         root = tk.Tk()
         app = FinancialApp(root)
         root.mainloop()
+        self.close_window()
 
     def show_dashboard(self):
         messagebox.showinfo("Dashboard", "This function will display the dashboard.")
+        self.close_window()
 
     def view_statements(self):
         messagebox.showinfo("View Statements", "This function will display statements.")
+        self.close_window()
 
     def see_analytics(self):
         messagebox.showinfo("See Analytics", "This function will display analytics.")
+        self.close_window()
+
+    def close_window(self):
+        self.root.destroy()

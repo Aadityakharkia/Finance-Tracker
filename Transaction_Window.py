@@ -9,8 +9,8 @@ class FinancialApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Transaction Window")
-        self.root.minsize(1200,600)
-        self.root.maxsize(1200,600)
+        self.root.minsize(1250,750)
+        self.root.maxsize(1250,750)
 
         self.options_frame = DebitCreditFrame(root, self)
         self.accounts_frame = AccountsFrame(root, self)
