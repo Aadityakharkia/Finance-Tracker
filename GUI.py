@@ -1,74 +1,81 @@
 import tkinter as tk
-from tkinter import *
-from tkinter import messagebox
-from Transaction_Window import FinancialApp
+from tkinter import messagebox, ttk
+from Transaction_Window import FinancialApp  # Ensure this module is correctly imported
 
 class GUI:
     def __init__(self):
-        self.root = Tk()
+        self.root = tk.Tk()
         self.root.title("Finance Tracker Dashboard")
 
-        self.root.geometry("1000x700")
-        self.root.minsize(1250, 750)
-        self.root.maxsize(1250, 750)
+        self.root.geometry("1250x750")
+        self.root.resizable(False, False)
 
-        self.button_frame = Frame(self.root)
-        self.button_frame.pack(fill=X, pady=10)
+        # Style configuration
+        style = ttk.Style(self.root)
+        style.configure('TButton', font=('Arial', 12), padding=10)
 
-        # This will ensure the buttons are centered in the middle under one another
-        self.button_frame.grid_rowconfigure(0, weight=1)
-        self.button_frame.grid_columnconfigure(0, weight=1)
+        # Menu buttons
+        self.create_menu_buttons()
 
-        # Add buttons in the grid layout
-        self.add_expenditure_button = Button(
-            self.button_frame, text="Add Expenditure", command=self.add_expenditure
-        )
-        self.add_expenditure_button.grid(row=0, column=0, padx=10, pady=10)
+        # Canvas for dynamic content
+        self.canvas = tk.Canvas(self.root, bg="lightblue")
+        self.canvas.pack(fill=tk.BOTH, expand=True)
 
-        self.dashboard_button = Button(
-            self.button_frame, text="Dashboard", command=self.show_dashboard
-        )
-        self.dashboard_button.grid(row=1, column=0, padx=10, pady=10)
+        # Status bar
+        self.status_bar = ttk.Label(self.root, text="Welcome to Finance Tracker", relief=tk.SUNKEN, anchor=tk.W)
+        self.status_bar.pack(side=tk.BOTTOM, fill=tk.X)
 
-        self.view_statements_button = Button(
-            self.button_frame, text="View Statements", command=self.view_statements
-        )
-        self.view_statements_button.grid(row=2, column=0, padx=10, pady=10)
+    def create_menu_buttons(self):
+        self.button_frame = ttk.Frame(self.root)
+        self.button_frame.pack(side=tk.LEFT, fill=tk.Y, pady=10, padx=10)
 
-        self.analytics_button = Button(
-            self.button_frame, text="See Analytics", command=self.see_analytics
-        )
-        self.analytics_button.grid(row=3, column=0, padx=10, pady=10)
+        buttons = [
+            ("Add Expenditure", self.add_expenditure),
+            ("Dashboard", self.show_dashboard),
+            ("View Statements", self.view_statements),
+            ("See Analytics", self.see_analytics)
+        ]
 
-        # Create a Canvas widget
-        self.canvas = Canvas(self.root, width=500, height=400, bg="lightblue")
-
-        # Pack the Canvas widget into the main window
-        self.canvas.pack(fill=BOTH, expand=True)
+        for i, (text, command) in enumerate(buttons):
+            button = ttk.Button(self.button_frame, text=text, command=command)
+            button.grid(row=i, column=0, pady=10)
 
     def run(self):
         self.root.mainloop()
 
-
-# Placeholder functions
-
     def add_expenditure(self):
-        root = tk.Tk()
-        app = FinancialApp(root)
-        root.mainloop()
-        self.close_window()
+        self.clear_canvas()
+        # Assuming FinancialApp is a tkinter frame-like class
+        app_frame = FinancialApp(self.canvas)
+        app_frame.pack(fill=tk.BOTH, expand=True)
+        self.update_status("Add Expenditure window opened.")
 
     def show_dashboard(self):
-        messagebox.showinfo("Dashboard", "This function will display the dashboard.")
-        self.close_window()
+        self.clear_canvas()
+        # Placeholder: Populate the canvas with dashboard elements
+        tk.Label(self.canvas, text="Dashboard Content Here", font=("Arial", 24)).pack(pady=20)
+        self.update_status("Dashboard displayed.")
 
     def view_statements(self):
-        messagebox.showinfo("View Statements", "This function will display statements.")
-        self.close_window()
+        self.clear_canvas()
+        # Placeholder: Populate the canvas with statements
+        tk.Label(self.canvas, text="Statements Content Here", font=("Arial", 24)).pack(pady=20)
+        self.update_status("Statements displayed.")
 
     def see_analytics(self):
-        messagebox.showinfo("See Analytics", "This function will display analytics.")
-        self.close_window()
+        self.clear_canvas()
+        # Placeholder: Populate the canvas with analytics
+        tk.Label(self.canvas, text="Analytics Content Here", font=("Arial", 24)).pack(pady=20)
+        self.update_status("Analytics displayed.")
 
-    def close_window(self):
-        self.root.destroy()
+    def clear_canvas(self):
+        for widget in self.canvas.winfo_children():
+            widget.destroy()
+
+    def update_status(self, message):
+        self.status_bar.config(text=message)
+
+
+if __name__ == "__main__":
+    gui = GUI()
+    gui.run()
